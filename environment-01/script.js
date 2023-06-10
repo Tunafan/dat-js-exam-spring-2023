@@ -2,30 +2,33 @@
 window.addEventListener("load", initApp)
 
 async function initApp() {
-    const students = await getStudents("./students.json");
+const students = await getStudents("./students.json")
 
-    students.forEach(showStudent);
+students.forEach(showStudent);
 }
-async function getStudents(url) {
-    const response = await fetch(url)
+
+async function getStudents(url){
+    const response = await fetch(url);
     const data = await response.json();
-    return data;
+return data;
 }
 
-async function showStudent(student){
-    console.log(student);
+function showStudent(student) {
+  console.log(student);
+  
+  document.querySelector(".containers").insertAdjacentHTML(
+    "beforeend",
+    /*html*/ `
+    <article>
+    <p><b>${student.name}</b></p>
+    <p>Student ID: 0000${student.id}</p>
+    <a href="mailto:${student.mail}">${student.mail}</a>
+    <p>Currently a student: ${student.enrolled}</p>
+    <p>Semesters completed: ${student.semester}</p>
+    </article>
+    <br>
+    `
 
-    document.querySelector("#students-container").insertAdjacentHTML(
-        "beforeend",
-        /*html*/ `
-        <article>
-            <h2>${student.name}</h2>
-            <article id="student-container">
-            <p>Student number: ${student.id}</p>
-            <p>e-mail adress: ${student.mail}</p>
-            <p>Enrolled in faculty: ${student.enrolled}</p>
-            <p>Semesters studied: ${student.semester}</p>
-            </article>
-            </article> `
-    )
+  )
+    
 }
