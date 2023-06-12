@@ -18,5 +18,12 @@ h2{
 
 .containers{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+article{
+    padding: 3%;
+    border-radius: 8px;
+}
+article:hover{
+    box-shadow: 0px 0px 40px 0px green;
 }

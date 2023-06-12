@@ -26,7 +26,6 @@ function showStudent(student) {
     <p>Currently a student: ${student.enrolled}</p>
     <p>Semesters completed: ${student.semester}</p>
     </article>
-    <br>
     `
 
   )
